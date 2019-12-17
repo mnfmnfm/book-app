@@ -15,6 +15,9 @@
       <% books.forEach(book => { %>
         <h3><%= book.volumeInfo.title %></h3>
         <h4>by <%= book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'unknown' %></h4>
+        <% if(book.volumeInfo.imageLinks) { %>
+          <img src="<%= book.volumeInfo.imageLinks.thumbnail %>" />
+        <% } %>
       <% }) %> 
     </div>
   </main>
