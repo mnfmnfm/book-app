@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Books!</title>
+</head>
+<body>
+  <h1>Books!</h1>
+
+  <main>
+    <div> 
+      <% books.forEach(book => { %>
+        <h3><%= book.volumeInfo.title %></h3>
+        <h4>by <%= book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'unknown' %></h4>
+      <% }) %> 
+    </div>
+  </main>
+</body>
+</html>
