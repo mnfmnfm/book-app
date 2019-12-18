@@ -12,7 +12,11 @@ app.get('/', (req, res) => {
   if (req.query.potato) {
     query = req.query.potato;
   }
-  superagent.get(`https://www.googleapis.com/books/v1/volumes/?q=${ query }`)
+  let type = 'title';
+  if (req.query.tomato) {
+    type = req.query.tomato;
+  }
+  superagent.get(`https://www.googleapis.com/books/v1/volumes/?q=${ query }+in${type}`)
     .then( bookResponse => {
       // console.log(bookResponse);
       res.render('index', { books: bookResponse.body.items});
